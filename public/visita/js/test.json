@@ -1,0 +1,128 @@
+{
+    "id":19,
+    "text": "Raiz",
+    "nivel": 0,
+    "children": [
+        {
+            "id": 2,
+            "text": "Publicidad pagada en redes sociales",
+            "nivel": 1,
+            "children": [
+                {
+                    "id": 14,
+                    "text": "Diseño gráfico",
+                    "nivel": 2,
+                    "children": [
+                    ],
+                    "id_padre": 2
+                }
+            ],
+            "id_padre": 19
+        },
+        {
+            "id": 4,
+            "text": "Yapa servicios",
+            "nivel": 1,
+            "children": [
+                {
+                    "id": 17,
+                    "text": "Producción audiovisual",
+                    "nivel": 2,
+                    "children": [
+                    ],
+                    "id_padre": 4
+                },
+                {
+                    "id": 16,
+                    "text": "Diseño gráfico",
+                    "nivel": 2,
+                    "children": [
+                    ],
+                    "id_padre": 4
+                }
+            ],
+            "id_padre": 19
+        },
+        {
+            "id": 1,
+            "text": "Plan",
+            "nivel": 1,
+            "children": [
+                {
+                    "id": 5,
+                    "text": "Plan mensual giga",
+                    "nivel": 2,
+                    "children": [
+                    ],
+                    "id_padre": 1
+                },
+                {
+                    "id": 8,
+                    "text": "Diseño gráfico",
+                    "nivel": 2,
+                    "children": [
+                        {
+                            "id": 12,
+                            "text": "Branding estratégico",
+                            "nivel": 3,
+                            "children": [
+                            ],
+                            "id_padre": 8
+                        },
+                        {
+                            "id": 11,
+                            "text": "Cambio de portada de facebook",
+                            "nivel": 3,
+                            "children": [
+                            ],
+                            "id_padre": 8
+                        }
+                    ],
+                    "id_padre": 1
+                },
+                {
+                    "id": 6,
+                    "text": "Plan mensual mega",
+                    "nivel": 2,
+                    "children": [
+                    ],
+                    "id_padre": 1
+                },
+                {
+                    "id": 7,
+                    "text": "Plan mensual tera",
+                    "nivel": 2,
+                    "children": [
+                    ],
+                    "id_padre": 1
+                }
+            ],
+            "id_padre": 19
+        },
+        {
+            "id": 3,
+            "text": "Servicio anual",
+            "nivel": 1,
+            "children": [
+                {
+                    "id": 9,
+                    "text": "Producción audiovisual",
+                    "nivel": 2,
+                    "children": [
+                    ],
+                    "id_padre": 3
+                },
+                {
+                    "id": 15,
+                    "text": "Diseño gráfico",
+                    "nivel": 2,
+                    "children": [
+                    ],
+                    "id_padre": 3
+                }
+            ],
+            "id_padre": 19
+        }
+    ],
+    "id_padre": null
+}
