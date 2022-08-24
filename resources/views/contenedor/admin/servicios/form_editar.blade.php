@@ -58,7 +58,7 @@
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label" >Nombre</label>
                                             <input type="text"  class="form-control" id="exampleInputEmail1" name="nombre" id="nombre" aria-describedby="emailHelp" value="<?php echo $nombre; ?>">
-                                        </div>
+                                        </div> 
                                     @endif
 
                                     @if($codigo_nivel == 'ser')

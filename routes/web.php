@@ -91,11 +91,7 @@ Route::get("servicio", [ServiciosController::class, "servicio"])->name('servicio
 Route::get("servicio_tree", [ServiciosController::class, "servicio_tree"])->name('servicio_tree');
 Route::get("tabla_tree", [ProformaController::class, "tabla_tree"])->name('tabla_tree');
 
-// Huella digital
-Route::get("huella_digital", [HuellaDigitalController::class, "huella_digital"])->name('huella_digital');
-Route::get("form_nueva_huella", [HuellaDigitalController::class, "form_nueva_huella"])->name('form_nueva_huella');
-Route::post("form_guardar_huella", [HuellaDigitalController::class, "form_guardar_huella"])->name('form_guardar_huella');
-
+// Nuevo servicio
 Route::get("form_nuevo/{id}", [ServiciosController::class, "form_nuevo"])->name('form_nuevo');
 Route::post("nuevo_servicio/{id}", [ServiciosController::class, "nuevo_servicio"])->name('nuevo_servicio');
 
@@ -103,3 +99,13 @@ Route::get("eliminar_servicio/{id}", [ServiciosController::class, "eliminar_serv
 
 Route::get("form_editar/{id}", [ServiciosController::class, "form_editar"])->name('form_editar');
 Route::post("editar_servicio/{id}", [ServiciosController::class, "editar_servicio"])->name('editar_servicio');
+
+// Huella digital
+Route::get("huella_digital", [HuellaDigitalController::class, "huella_digital"])->name('huella_digital');
+Route::get("form_nueva_huella", [HuellaDigitalController::class, "form_nueva_huella"])->name('form_nueva_huella');
+Route::post("form_guardar_huella", [HuellaDigitalController::class, "form_guardar_huella"])->name('form_guardar_huella');
+
+Route::get("form_editar_huella/{id}", [HuellaDigitalController::class, "form_editar_huella"])->name('form_editar_huella');
+Route::post("form_guardar_editando_huella/{id}", [HuellaDigitalController::class, "form_guardar_editando_huella"])->name('form_guardar_editando_huella');
+
+Route::get("pdf_huella_digital/{id}", [HuellaDigitalController::class, "pdf_huella_digital"])->name('pdf_huella_digital');

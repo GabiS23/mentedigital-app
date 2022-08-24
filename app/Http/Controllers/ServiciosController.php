@@ -364,10 +364,9 @@ class ServiciosController extends Controller
                 );
             return view('contenedor.admin.servicios.servicio',$arrayParametros);
     }
-
     public function form_editar($id){
         //dibujar el formulario 
-        // dd($request->id_padre);
+        // dd($request->id_padre); 
         // dd($request->nombre,$request->descripcion,$request->precio);
         $servicios= DB::select('SELECT 
                                 s.id_seccion_servicio, 
@@ -431,12 +430,11 @@ class ServiciosController extends Controller
                 // lista plataforma digital
                 'lista_plataforma_digital'=>$lista_plataforma_digital,
                 'id_plataforma_digital'=>$servicios[0]->id_plataforma_digital,
-                'codigo_nivel' =>$servicios[0]->codigo_nivel,
+                'codigo_nivel' =>$servicios[0]->codigo_nivel
                 );
 
         return view('contenedor.admin.servicios.form_editar',$arrayParametros);
     }
-
     public function editar_servicio(Request $request , $id){
         //
         $servicios= DB::select('SELECT 
@@ -453,14 +451,6 @@ class ServiciosController extends Controller
                                 left join pro.tplataforma_digital pd on pd.id_plataforma_digital=s.id_plataforma_digital
                                 left join pro.tnivel n on n.id_nivel=s.id_nivel
                                 where id_seccion_servicio=?;',[$id]);
-
-       
-        
-        // $servicios= DB::select('SELECT id_seccion_servicio, nombre, descripcion, precio, id_nivel, id_padre, id_gestion
-        // FROM pro.seccion_servicio where id_seccion_servicio=?;',[$id]);
-
-        // $lista_nivel= DB::select('SELECT n.id_nivel, n.descripcion_nivel
-        // FROM pro.tnivel n;');
         
         $lista_nivel= DB::select('select 
         n.id_nivel, 

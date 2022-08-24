@@ -3,9 +3,7 @@
 <style>.crud_label{text-align:right;} .tree { border:0px solid black; padding:10px; width:300px; margin:20px; float:left; min-height:200px; }</style>
 <script>
      var var_id_servicio=0;
-    
 </script>
-
 @section('content')
 <!-- Orders -->
 <div class="orders">
@@ -44,7 +42,7 @@
                                 <?php $contador++;?>
                                 @if ($c->nivel==0)  
                                     <thead>
-                                        <tr onclick="seleccionar_servicio('{{$c->id_seccion_servicio}}','{{$c->nombre}}')" data-node-id='<?php echo ($c->id_seccion_servicio); ?>' data-node-pid='<?php echo ($c->id_padre); ?>'>
+                                        <tr>
 
                                             <th scope="col" style="font-size: 13px !important">SECCION</th>
                                             <th scope="col" style="font-size: 13px !important">NIVEL</th>
@@ -71,34 +69,30 @@
         </div>  
     </div>
 </div>
-  <!-- jquery para select y tree -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-    <!-- <script src="{{asset('visita/dist/jstree.min.js')}}"></script> -->
-    <script src="{{asset('visita/js/jquery-simple-tree-table.js')}}"></script>
+<!-- jquery para select y tree -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+<!-- <script src="{{asset('visita/dist/jstree.min.js')}}"></script> -->
+<script src="{{asset('visita/js/jquery-simple-tree-table.js')}}"></script>
 
-
-    <script>
-        $('#basic').simpleTreeTable({
-            expander: $('#expander'),
-            collapser: $('#collapser'),
-            store: 'session',
-            storeKey: 'simple-tree-table-basic'
-        });
-        $('#open1').on('click', function() {
-            $('#basic').data('simple-tree-table').openByID("1");
-        });
-        $('#close1').on('click', function() {
-            $('#basic').data('simple-tree-table').closeByID("1");
-        });
-    </script>
+<script>
+    $('#basic').simpleTreeTable({
+        expander: $('#expander'),
+        collapser: $('#collapser'),
+        store: 'session',
+        storeKey: 'simple-tree-table-basic'
+    });
+    $('#open1').on('click', function() {
+        $('#basic').data('simple-tree-table').openByID("1");
+    });
+    $('#close1').on('click', function() {
+        $('#basic').data('simple-tree-table').closeByID("1");
+    });
+</script>
    
 <script>
     // seleccionar_servicio(1);
-
     function seleccionar_servicio(id_seccion_servicio,nombre){
-
-        
 
         $(document).ready(function(){
             var_id_servicio = id_seccion_servicio;
@@ -107,8 +101,6 @@
             $("#id_label").html(nombre);
         });
     }
-   
-    
 
     function agregar(){
         console.log('Servicio seleccionado en agregar',var_id_servicio);
