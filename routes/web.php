@@ -108,4 +108,5 @@ Route::post("form_guardar_huella", [HuellaDigitalController::class, "form_guarda
 Route::get("form_editar_huella/{id}", [HuellaDigitalController::class, "form_editar_huella"])->name('form_editar_huella');
 Route::post("form_guardar_editando_huella/{id}", [HuellaDigitalController::class, "form_guardar_editando_huella"])->name('form_guardar_editando_huella');
 
+// Proforma
 Route::get("pdf_huella_digital/{id}", [HuellaDigitalController::class, "pdf_huella_digital"])->name('pdf_huella_digital');

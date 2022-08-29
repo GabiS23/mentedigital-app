@@ -23,7 +23,7 @@
                             <a id="agregar" href="#"><i class="fa fa-plus-circle" aria-hidden="true" onclick="agregar()"></i></a>
                             <a id="editar"><i class="fa fa-pencil-square" aria-hidden="true" onclick="editar()"></i></a>
                             <a id="eliminar"><i class="fa fa-trash" aria-hidden="true" onclick="eliminar()"></i></a>
-                            <a id="pdf"><i class="fas fa-print" aria-hidden="true" onclick="pdf()"></i></a>
+                            <a target="_blank" id="pdf" name="pdf"><i class="fas fa-print" aria-hidden="true" onclick="pdf()"></i></a>
                         </div>
                         <table class="table table-bordered table-hover" id="tusuarios" name="tusuarios">
                             
@@ -36,7 +36,6 @@
                                     <th scope="col">Nivel de eficacia en redes sociales %</th>
                                     <th scope="col">Fecha reg</th>
                                     <th scope="col">Fecha mod</th>
-                                    <th scope="col">Imprimir</th>
                                 </tr>
                             </thead>
                             
@@ -52,9 +51,6 @@
                                     <td>{{$c->respuesta_porcentaje}}</td>
                                     <td>{{$c->fecha_reg}}</td>
                                     <td>{{$c->fecha_mod}}</td>
-                                    <!-- <td>
-                                        <a target="_blank" onclick="pdf()" style="width:60px;"><i class="fas fa-print"></i></a>
-                                    </td> -->
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -99,5 +95,6 @@
         var url="{{route('pdf_huella_digital',['id'=>'temp'])}}";
         var url = url.replace('temp',var_id_huella);
         location.href = url;
+        
     }
 </script>

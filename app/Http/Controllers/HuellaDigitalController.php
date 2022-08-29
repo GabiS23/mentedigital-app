@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
+// use Barryvdh\DomPDF\Facade as PDF;
 use PDF;
+
 class HuellaDigitalController extends Controller
 {
     /**
@@ -136,7 +138,6 @@ class HuellaDigitalController extends Controller
         $id_huella_digital=DB::select('select MAX(id_huella_digital) as id_huella_digital from pro.thuella_digital');
        
         // DB::insert('INSERT INTO pro.');
-
         foreach ($lista_cuestionario as $p){
 
             $id='pre_'.(string)$p->id_nivel;
@@ -237,7 +238,6 @@ class HuellaDigitalController extends Controller
             vc.titulo
             from pro.vcuestionario vc
             join tree t on t.id_nivel=vc.id_padre
-            )
             select 
             t.id_nivel,
             t.pregunta,
@@ -246,7 +246,7 @@ class HuellaDigitalController extends Controller
             from tree t
 			left join pro.thuella_digital_respuesta hdr on hdr.id_seccion_servicio=t.id_nivel and hdr.id_huella_digital=".$id."::integer
 			left join pro.seccion_servicio ss on ss.id_seccion_servicio=t.id_nivel
-            order by t.orden asc ";
+            order by t.orden asc";
 
         $lista_cuestionario=DB::select($query);
         
@@ -398,51 +398,73 @@ class HuellaDigitalController extends Controller
         
     }
     public function pdf_huella_digital($id){
-
         // dd($id);
         $lista_empresa= DB::select('SELECT 
-        id_empresa, 
-        nombre_marca
-        FROM pro.tempresa;');
-            // consulta de preguntas seleccionadas
-            $query="WITH recursive tree as (
-            select 
-            vc.id_nivel,
-            vc.pregunta,
-            vc.id_padre,
-            vc.id_nivel::text as orden, 
-            vc.titulo
-            from pro.vcuestionario vc
-            where vc.id_padre=5
-            union all
-            select 
-            vc.id_nivel,
-            vc.pregunta,
-            vc.id_padre,
-            (t.orden || '->' || vc.id_nivel)::text as orden,
-            vc.titulo
-            from pro.vcuestionario vc
-            join tree t on t.id_nivel=vc.id_padre
-            )
-            select 
-            t.id_nivel,
-            t.pregunta,
-            t.titulo,
-            hdr.id_seccion_servicio
-            from tree t
-            left join pro.thuella_digital_respuesta hdr on hdr.id_seccion_servicio=t.id_nivel and hdr.id_huella_digital=".$id."::integer
-            left join pro.seccion_servicio ss on ss.id_seccion_servicio=t.id_nivel
-            order by t.orden asc ";
+                                    id_empresa, 
+                                    nombre_marca
+                                    FROM pro.tempresa;');
+        
+        // consulta de preguntas seleccionadas
+        $query="WITH recursive tree as (
+                            select 
+                            vc.id_nivel,
+                            vc.pregunta,
+                            vc.id_padre,
+                            vc.id_nivel::text as orden, 
+                            vc.titulo
+                            from pro.vcuestionario vc
+                            where vc.id_padre=5
+                            union all
+                            select 
+                            vc.id_nivel,
+                            vc.pregunta,
+                            vc.id_padre,
+                            (t.orden || '->' || vc.id_nivel)::text as orden,
+                            vc.titulo
+                            from pro.vcuestionario vc
+                            join tree t on t.id_nivel=vc.id_padre
+                            )
+                            select 
+                            t.id_nivel,
+                            t.pregunta,
+                            t.titulo,
+                            hdr.id_seccion_servicio
+                            from tree t
+                            left join pro.thuella_digital_respuesta hdr on hdr.id_seccion_servicio=t.id_nivel and hdr.id_huella_digital=".$id."::integer
+                            left join pro.seccion_servicio ss on ss.id_seccion_servicio=t.id_nivel
+        order by t.orden asc ";
 
-            $lista_cuestionario=DB::select($query);
+        $lista_cuestionario=DB::select($query);
+            
+            // return compact('lista_cuestionario');
+        
+        $arrayParametros = array(
+        'lista_cuestionario' => $lista_cuestionario,
+        'lista_empresa' => $lista_empresa,
+        'id_huella_digital'=>$id
+        ); 
+        //Recuperar todos los productos de la db
+        // $productos = Producto::all();
+        if ($id !=0) {
+            
+                view()->share($arrayParametros);
+                
+                    $pdf = PDF::loadView('contenedor/admin/huella_digital/pdf_huella_digital');
+                    return $pdf->download('huella_digital.pdf'); 
+                    // --Descargar el archivo 
+                    // return $pdf->stream('huella_digital.pdf'); 
+                    //se visualiza el archivo 
+                
+            return view('contenedor/admin/huella_digital/pdf_huella_digital');
+        }
 
+        else{
             $arrayParametros = array(
-            'lista_cuestionario' => $lista_cuestionario,
-            'lista_empresa' => $lista_empresa,
-            'id_huella_digital'=>$id
-            ); 
+                            'id_huella_digital'=>0,
+                            'lista_empresa' => $lista_empresa
+                            );
 
-        return view('contenedor/admin/huella_digital/pdf_huella_digital',$arrayParametros);
+            return view ('contenedor/admin/huella_digital/pdf_huella_digital',compact('cuestionario')); 
+        }
     }
-    
 }
