@@ -83,7 +83,7 @@
             Swal.fire({
                 position: 'top-end',
                 // icon: 'success',
-                title: 'Producto seleccionado',
+                title: 'Huella Digital seleccionada',
                 showConfirmButton: false,
                 timer: 1200
             })

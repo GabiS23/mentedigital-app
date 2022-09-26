@@ -43,8 +43,7 @@
                                 @if ($c->nivel==0)  
                                     <thead>
                                         <tr>
-
-                                            <th scope="col" style="font-size: 13px !important">SECCION</th>
+                                            <th scope="col" style="font-size: 13px !important; width: 500px !important;">SECCION</th>
                                             <th scope="col" style="font-size: 13px !important">NIVEL</th>
                                             <th scope="col" style="font-size: 13px !important">DESCRIPCION</th>
                                             <th scope="col" style="font-size: 13px !important">PRECIO UNIT. Bs</th>

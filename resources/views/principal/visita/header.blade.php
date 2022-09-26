@@ -6,7 +6,7 @@
 </style>
 <!-- Navigation -->
 <div class="fixed" style="position:fixed;width: 100%;z-index:100;">
-  <nav class="navbar navbar-expand-lg static-top" style="background-color:#482359;padding:0;">
+  <nav class="navbar navbar-expand-lg static-top" style="background-color:#280443;padding:0;">
     <div class="container">
       <div class="navbar-brand">
           <div class="inline">
@@ -21,7 +21,7 @@
   <nav class="navbar navbar-expand-lg navbar-light static-top bg-light" style="box-shadow: 2px 2px 5px #999;">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="./visita/imagen_empresa/logos/logo.jpg" alt="logo mente digital" height="50">
+        <img src="./visita/imagen_empresa/logos/logoMD.png" alt="logo mente digital" height="50">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -29,37 +29,37 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{route('inicio_index')}}" style="color:#482359;">Inicio</a>
+            <a class="nav-link" aria-current="page" href="{{route('inicio_index')}}" style="color:#280443;">Inicio</a>
           </li>
           <!-- <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#" style="color:#482359;">Servicios&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="nav-link" aria-current="page" href="#" style="color:#280443;">Servicios&nbsp;&nbsp;&nbsp;&nbsp;</a>
           </li> -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:#482359;">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color:#280443;">
               Servicios
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="{{route('brandingEstrategico_index')}}" style="color:#482359;">Branding estratégico</a></li>
-              <li><a class="dropdown-item" href="{{route('grafico_index')}}" style="color:#482359;">Producción gráfica para redes sociales</a></li>
-              <li><a class="dropdown-item" href="{{route('socialMedia_index')}}" style="color:#482359;">Social media marketing</a></li>
-              <li><a class="dropdown-item" href="{{route('tiktok_index')}}" style="color:#482359;">Tik tok publicitario</a></li>
-              <li><a class="dropdown-item" href="{{route('fotografia_index')}}" style="color:#482359;">Producción fotográfica comercial</a></li>
-              <li><a class="dropdown-item" href="{{route('audiovisual_index')}}" style="color:#482359;">Producción audiovisual para redes sociales</a></li>
-              <li><a class="dropdown-item" href="{{route('web_index')}}" style="color:#482359;">Desarrollo y diseño de página web</a></li>
+              <li><a class="dropdown-item" href="{{route('brandingEstrategico_index')}}" style="color:#280443;">Branding estratégico</a></li>
+              <li><a class="dropdown-item" href="{{route('grafico_index')}}" style="color:#280443;">Producción gráfica para redes sociales</a></li>
+              <li><a class="dropdown-item" href="{{route('socialMedia_index')}}" style="color:#280443;">Social media marketing</a></li>
+              <li><a class="dropdown-item" href="{{route('tiktok_index')}}" style="color:#280443;">Tik tok publicitario</a></li>
+              <li><a class="dropdown-item" href="{{route('fotografia_index')}}" style="color:#280443;">Producción fotográfica comercial</a></li>
+              <li><a class="dropdown-item" href="{{route('audiovisual_index')}}" style="color:#280443;">Producción audiovisual para redes sociales</a></li>
+              <li><a class="dropdown-item" href="{{route('web_index')}}" style="color:#280443;">Desarrollo y diseño de página web</a></li>
               <br>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{route('nosotros_index')}}"style="color:#482359;">Sobre nosotros</a>
+            <a class="nav-link" aria-current="page" href="{{route('nosotros_index')}}"style="color:#280443;">Sobre nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{route('equipo_index')}}"style="color:#482359;">Nuestro equipo</a>
+            <a class="nav-link" aria-current="page" href="{{route('equipo_index')}}"style="color:#280443;">Nuestro equipo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{route('contactanos.index')}}" style="color:#482359;">Contacto</a>
+            <a class="nav-link" aria-current="page" href="{{route('contactanos.index')}}" style="color:#280443;">Contacto</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{route('login')}}" style="color:#482359;"><i class="fa fa-user" style="margin: 0px 5px 0px 5px;"></i></a>
+            <a class="nav-link" aria-current="page" href="{{route('login')}}" style="color:#280443;"><i class="fa fa-user" style="margin: 0px 5px 0px 5px;"></i></a>
           </li>
           <br>
         </ul>

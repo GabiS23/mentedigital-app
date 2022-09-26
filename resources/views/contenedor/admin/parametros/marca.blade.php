@@ -23,19 +23,6 @@
                                             <th hidden="hide">Id producto</th>
                                             <th>Nro</th>
                                             <th scope="col">Nombre marca</th>
-                                            <th scope="col">Rubro</th>
-                                            <th scope="col">Fecha de ingreso</th>
-                                            <th scope="col">Teléfono</th>
-                                            <th scope="col">Celular</th>
-                                            <th scope="col">Dirección</th>
-                                            <th scope="col">Fecha de aniversario</th>
-                                            <th scope="col">Ciudad</th>
-                                            <th scope="col">Provincia</th>
-                                            <th scope="col">Pais</th>
-                                            <th scope="col">Usuario reg</th>
-                                            <th scope="col">Usuario mod</th>
-                                            <th scope="col">Fecha reg</th>
-                                            <th scope="col">Fecha mod</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbodyid">
@@ -46,19 +33,6 @@
                                             <td hidden="hide">{{$m->id_empresa}}</td>
                                             <td>{{$nro}}</td>
                                             <td scope="col">{{$m->nombre_marca}}</td>
-                                            <td scope="col">{{$m->rubro}}</td>
-                                            <td scope="col">{{$m->fecha_ingreso}}</td>
-                                            <td scope="col">{{$m->telefono}}</td>
-                                            <td scope="col">{{$m->celular}}</td>
-                                            <td scope="col">{{$m->direccion}}</td>
-                                            <td scope="col">{{$m->fecha_aniversario}}</td>
-                                            <td scope="col">{{$m->ciudad}}</td>
-                                            <td scope="col">{{$m->provincia}}</td>
-                                            <td scope="col">{{$m->nombre_marca}}</td>
-                                            <td scope="col">{{$m->name}}</td>
-                                            <td scope="col">{{$m->usuario_mod}}</td>
-                                            <td scope="col">{{$m->fecha_reg}}</td>
-                                            <td scope="col">{{$m->fecha_mod}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>    

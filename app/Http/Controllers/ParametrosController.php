@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class ParametrosController extends Controller
 {
-    public function gestion()
-    {
+    public function gestion(){
         $lista_gestion= DB::select("select id_gestion, nombre, fecha_reg, fecha_mod, usuario_mod
                                     FROM pro.tgestion;
                                     ");
@@ -19,6 +18,30 @@ class ParametrosController extends Controller
         return view('contenedor.admin.parametros.gestion',$arrayParametros); 
     }
     public function marca(){
+
+        $lista_marca=DB::select("SELECT id_empresa,nombre_marca 
+        FROM pro.tempresa ORDER BY nombre_marca ASC;");
+
+        $arrayParametros = array(
+            'lista_marca' => $lista_marca
+                                );
+        return view('contenedor.admin.parametros.marca',$arrayParametros);
+    }
+    public function form_nueva_marca(){
+
+        $lista_empresa= DB::select('SELECT 
+                                id_empresa, 
+                                nombre_marca
+                                FROM pro.tempresa;');
+        // dd('Hola nueva marca');
+        $arrayParametros = array(
+            'lista_empresa' => $lista_empresa,
+            'nombre_marca'=>"",
+                                );
+                                
+        return view('contenedor.admin.parametros.form_nueva_marca',$arrayParametros);
+    }
+    public function nueva_marca(Request $request){
         $lista_marca=DB::select("select 
                             e.id_empresa,
                             e.nombre_marca, 
@@ -39,19 +62,23 @@ class ParametrosController extends Controller
                             join segu.users u on u.id=e.usuario_reg
                             join pro.tpais p on p.id_pais=e.id_pais
                                                 ");
-
-        $arrayParametros = array(
-            'lista_marca' => $lista_marca
+        $lista_empresa= DB::select('SELECT 
+                                id_empresa, 
+                                nombre_marca
+                                FROM pro.tempresa;');
+        // dd('Hola MAR');
+        DB::insert('INSERT INTO pro.tempresa(
+            fecha_reg,nombre_marca)
+            VALUES (now()::TIMESTAMP,?);',[$request->nombre_marca]);
+         $arrayParametros = array(
+            'lista_empresa' => $lista_empresa,
+            'lista_marca' => $lista_marca,
+            'nombre_marca'=>$request->nombre_marca,
                                 );
-        return view('contenedor.admin.parametros.marca',$arrayParametros);
+                                // dd($arrayParametros);
+        return view('contenedor.admin.parametros.form_nueva_marca',$arrayParametros );
     }
-    public function form_nueva_marca(){
-        // dd('Hola nueva marca');
-        return view('contenedor.admin.parametros.form_nueva_marca');
-    }
-    public function nueva_marca(){
-        return view('contenedor.admin.parametros.nueva_marca');
-    }
+
     public function clientes(){
         $lista_clientes=DB::select("select 
                                 p.nombre,

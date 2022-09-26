@@ -1,82 +1,85 @@
-@extends('principal.admin.layout_admin')
-@section('content')
-<script>
-     var var_id_huella2=0;
-    
-</script>
-<style>
-    form-check-input{
-        color:red !important;
-    }
-</style>
-<div class="row">
-    <div class="col-md-4">
-        HOLA
-    </div>
-    <div class="col-md-4">
-        HOLA
-    </div>
-    <div class="col-md-4">
-        HOLA
-    </div>
-</div>
-<div class="orders">
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-xl-12">
-            <div class="card">
-                    <div class="contenido">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="crud">
-                                    <a id="atras" href="{{ route('huella_digital')}}" data-toggle="tooltip" data-placement="top" title="Atras"><i class="fa fa-solid fa-arrow-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col md-12">
-                                <div class="crud">
-                                    <h4>DIAGNÓSTICO DE HUELLA DIGITAL</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <form method="get" id="form" name="form" action="" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" type="text" class="form-control"  id="id_huella_digital" name="id_huella_digital">
-                                    <div class="mb-6">
-                                        <h2>EMPRESA</h2>
-                                        
-                                    </div>  
+<html>
+    <head>
+        <style>
+            /** 
+                Establezca los márgenes de la página en 0, por lo que el pie de página y el encabezado
+                puede ser de altura y anchura completas.
+             **/
+            @page {
+                margin: 0cm 0cm;
+            }
 
-                                    <div class="mb-6">
-                                        @foreach($lista_cuestionario as $n)
-                                            @if($n->titulo=='si')
-                                                <br> 
-                                                <div class="crud">
-                                                    <h4>{{$n->pregunta}}</h4>
-                                                </div>
-                                            @else
-                                                <div class="form-check">
-                                                    @if($n->id_seccion_servicio != null)
-                                                        <input class="form-check-input" checked type="checkbox" value='<?php echo ($n->id_nivel); ?>' id='<?php echo ('pre_'.$n->id_nivel); ?>' name='<?php echo ('pre_'.$n->id_nivel); ?>'>
-                                                        <label class="form-check-label" for="flexCheckDefault">
-                                                            {{$n->pregunta}}
-                                                        </label>
-                                                    @endif
-                                                </div>
-                                            @endif
-                                        @endforeach
-                                    </div>
-                                    
-                                </form>    
-                            </div>
-                            <div class="">
-                            </div>
+            /** Defina ahora los márgenes reales de cada página en el PDF **/
+            body {
+                margin-top: 3cm;
+                margin-left: 2cm;
+                margin-right: 2cm;
+                margin-bottom: 2cm;
+            }
+
+            /** Definir las reglas del encabezado **/
+            header {
+                position: fixed;
+                top: 0cm;
+                left: 0cm;
+                right: 0cm;
+                /* height: 3cm; */
+            }
+
+            /** Definir las reglas del pie de página **/
+            footer {
+                position: fixed; 
+                bottom: 0cm; 
+                left: 0cm; 
+                right: 0cm;
+                /* height: 0cm; */
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Defina bloques de encabezado y pie de página antes de su contenido -->
+        <header style="text-align:center;">
+            <img src="visita/imagen_empresa/huella-digital/cabecera.png" height=150/>
+        </header>
+
+        <footer style="text-align:center;">
+            <img src="visita/imagen_empresa/huella-digital/pie.png" height=150 width=100% />
+        </footer>
+        <br>
+        <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
+        <main style="margin-right: 50px; margin-left: 50px;">
+            <div class="fecha" style="text-align: right;">
+                <p><?php echo ($arrayParametros['huella_digital'][0]->fecha_registro);?></p> 
+            </div>
+            <div class="mb-6">
+                <p>Estimado(s) <?php echo ($arrayParametros['lista_empresa'][0]->nombre_marca); ?></p>
+                <p style="color: #000;">La huella digital de su marca es el rastro de sus publicaciones y las interacciones de sus seguidores en sus redes sociales.</p>
+                <p style="color: #000;">El nivel actual de eficacia de <b style="color: #EB5D1C;"><?php echo ($arrayParametros['lista_empresa'][0]->nombre_marca); ?></b>  en sus redes sociales es: <b style="color: #EB5D1C;"><?php echo ($arrayParametros['huella_digital'][0]->respuesta_porcentaje); ?>%</b> de 100%</p> 
+                <p>Para que su marca tenga una efectiva presencia en redes sociales y consolide su comunidad de seguidores se recomienda:</p>
+                <div class="propuesta" style="margin-left: 20px;">
+                    @foreach($arrayParametros['lista_cuestionario'] as $p)
+                        @if($p->titulo=='si')
+                            <p style="color:#EB5D1C;"><b>{{$p->pregunta}}</b></p>
+                        @else
+                        <div class="form-check" style="margin-left: 20px;">
+                            @if($p->id_seccion_servicio != null)
+                                <!-- <input class="form-check-input" checked type="checkbox" value='<?php echo ($p->id_nivel); ?>' id='<?php echo ('pre_'.$p->id_nivel); ?>' name='<?php echo ('pre_'.$p->id_nivel); ?>'> -->
+                                <li><label class="form-check-label" for="flexCheckDefault">
+                                    {{$p->pregunta}}
+                                </label></li>
+                            @endif
                         </div>
-                    </div>
-            </div> 
-        </div>  
-    </div>
-</div>
-@stop
+                        @endif
+                    @endforeach
+                </div>
+            </div>  
+            
+            
+        </main>
+    </body>
+</html>
+
+
+
+

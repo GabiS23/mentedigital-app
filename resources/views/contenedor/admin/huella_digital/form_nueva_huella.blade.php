@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="crud">
-                                    <a id="atras" href="{{ route('huella_digital') }}" data-toggle="tooltip" data-placement="top" title="Atras"><i class="fa fa-solid fa-arrow-left"></i></a>
+                                    <a id="atras" href="{{ route('huella_digital')}}" data-toggle="tooltip" data-placement="top" title="Atras"><i class="fa fa-solid fa-arrow-left"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -61,9 +61,6 @@
                                             @endif
                                         @endforeach
                                         
-                                        
-                                       
-                                    
                                     </div>
                                     
                                     <div class="row">

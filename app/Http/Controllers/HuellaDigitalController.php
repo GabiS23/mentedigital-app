@@ -398,11 +398,26 @@ class HuellaDigitalController extends Controller
         
     }
     public function pdf_huella_digital($id){
+
         // dd($id);
+        $huella_digital= DB::select('Select 
+                                    id_huella_digital, 
+                                    fecha_reg::DATE as fecha_registro, 
+                                    nro_huella_digital, 
+                                    usuario_mod, 
+                                    id_empresa, 
+                                    fecha_mod, 
+                                    total_preguntas, 
+                                    total_nulos, chek_respuestas, 
+                                    respuesta_porcentaje 
+                                    from pro.thuella_digital 
+                                    where id_huella_digital=?',[$id]);
+
         $lista_empresa= DB::select('SELECT 
                                     id_empresa, 
                                     nombre_marca
-                                    FROM pro.tempresa;');
+                                    FROM pro.tempresa
+                                    where id_empresa=?',[$huella_digital[0]->id_empresa]);
         
         // consulta de preguntas seleccionadas
         $query="WITH recursive tree as (
@@ -435,36 +450,22 @@ class HuellaDigitalController extends Controller
         order by t.orden asc ";
 
         $lista_cuestionario=DB::select($query);
-            
+
             // return compact('lista_cuestionario');
         
         $arrayParametros = array(
-        'lista_cuestionario' => $lista_cuestionario,
         'lista_empresa' => $lista_empresa,
-        'id_huella_digital'=>$id
+        'huella_digital' => $huella_digital,
+        'lista_cuestionario'=> $lista_cuestionario
+        // 'id_huella_digital'=>$id
         ); 
-        //Recuperar todos los productos de la db
-        // $productos = Producto::all();
-        if ($id !=0) {
-            
-                view()->share($arrayParametros);
-                
-                    $pdf = PDF::loadView('contenedor/admin/huella_digital/pdf_huella_digital');
-                    return $pdf->download('huella_digital.pdf'); 
-                    // --Descargar el archivo 
-                    // return $pdf->stream('huella_digital.pdf'); 
-                    //se visualiza el archivo 
-                
-            return view('contenedor/admin/huella_digital/pdf_huella_digital');
-        }
+        // dd($arrayParametros['lista_cuestionario']);
 
-        else{
-            $arrayParametros = array(
-                            'id_huella_digital'=>0,
-                            'lista_empresa' => $lista_empresa
-                            );
+        view()->share('arrayParametros',$arrayParametros);
+        $pdf = PDF::loadView('contenedor/admin/huella_digital/pdf_huella_digital');
+                    
+        return $pdf->download('huella_digital.pdf'); 
 
-            return view ('contenedor/admin/huella_digital/pdf_huella_digital',compact('cuestionario')); 
-        }
+        
     }
 }

@@ -74,7 +74,7 @@ Route::get("clientes", [ParametrosController::class, "clientes"])->name('cliente
 // Marca
 Route::get("marca", [ParametrosController::class, "marca"])->name('marca');
 Route::get("form_nueva_marca", [ParametrosController::class, "form_nueva_marca"])->name('form_nueva_marca');
-Route::get("nueva_marca", [ParametrosController::class, "nueva_marca"])->name('nueva_marca');
+Route::post("nueva_marca", [ParametrosController::class, "nueva_marca"])->name('nueva_marca');
 
 Route::get("eliminar_marca/{id}", [ParametrosController::class, "eliminar_marca"])->name('eliminar_marca');
 
