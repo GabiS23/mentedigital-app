@@ -11,7 +11,7 @@
     <div class="sectionAdmin">
         <div class="Container">
             <div class="contenidoAdmin">
-            <form method="POST" id="nuevo_usuario" name="nuevo_usuario" action="{{ route('form_nuevo_usuario') }}" enctype="multipart/form-data">
+            <form method="POST" id="nuevo_usuario" name="nuevo_usuario" action="{{ route('guardar_usuario') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="row">
                     <div class="col-md-2"></div>
@@ -77,34 +77,14 @@
                                     </select>
                                 </div>   
                             </div>
-                            <div class="row">
-                            <!-- sucursal -->
-                                <div class="form-group col-md-4">
-                                    <label for="inputState">Sucursal</label>
-                                    <select id="id_sucursal" name="id_sucursal[]" class="js-example-basic-multiple" multiple="multiple"  style="width:100%;">
-                                        <option value="0">Elegir</option>
-                                        @foreach($lista_sucursal as $s) 
-                                            <?php  $bandera=0; ?>
-                                            <?php for($i = 0; $i < count($id_sucursal); $i++){ ?>
-                                                <?php if($id_sucursal[$i]==$s->id_sucursal){ ?>
-                                                    <?php  $bandera=1; ?>
-                                                    <option value="{{$s->id_sucursal}}" selected>{{$s->nombre_sucursal}}</option>
-                                                <?php } ?>
-                                            <?php } ?>
-                                                <?php if($bandera==0){ ?>
-                                                    <option value="{{$s->id_sucursal}}">{{$s->nombre_sucursal}}</option>
-                                                <?php } ?>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+                            
                             <br>
                         
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Guardar</button>
-                                    <a href="{{ route('usuarios_index') }}" class="d-none btn btn-sm btn-danger"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp;&nbsp;Cancelar</a>
-                                    <a class="d-done btn btn-sm btn-warning " href="{{ url('usuarios_index') }}"><i class="fa fa-reply "></i>&nbsp;&nbsp;Atras</a>                
+                                    <a href="{{ route('usuarios') }}" class="d-none btn btn-sm btn-danger"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp;&nbsp;Cancelar</a>
+                                    <a class="d-done btn btn-sm btn-warning " href="{{ url('usuarios') }}"><i class="fa fa-reply "></i>&nbsp;&nbsp;Atras</a>                
                                 </div>
                             </div>
                         </form>

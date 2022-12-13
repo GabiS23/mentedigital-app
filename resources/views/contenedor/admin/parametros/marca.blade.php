@@ -22,6 +22,7 @@
                                         <tr> 
                                             <th hidden="hide">Id producto</th>
                                             <th>Nro</th>
+                                            <th scope="col">Código</th>
                                             <th scope="col">Nombre marca</th>
                                         </tr>
                                     </thead>
@@ -32,6 +33,7 @@
                                         <tr>
                                             <td hidden="hide">{{$m->id_empresa}}</td>
                                             <td>{{$nro}}</td>
+                                            <td scope="col">{{$m->codigo}}</td>
                                             <td scope="col">{{$m->nombre_marca}}</td>
                                         </tr>
                                         @endforeach

@@ -46,8 +46,9 @@
                                             <th scope="col" style="font-size: 13px !important; width: 500px !important;">SECCION</th>
                                             <th scope="col" style="font-size: 13px !important">NIVEL</th>
                                             <th scope="col" style="font-size: 13px !important">DESCRIPCION</th>
+                                            <th scope="col" style="font-size: 13px !important">CANTIDAD</th>
                                             <th scope="col" style="font-size: 13px !important">PRECIO UNIT. Bs</th>
-                                            <th scope="col" style="font-size: 13px !important">VALOR</th>
+                                            <th scope="col" style="font-size: 13px !important">SUB TOTAL</th>
                                         </tr>
                                     </thead>
                                 @else
@@ -56,8 +57,9 @@
                                             <td scope="col">{{$c->nombre}}</td>
                                             <td scope="col">{{$c->descripcion_nivel}}</td>
                                             <td scope="col">{{$c->descripcion}}</td>
+                                            <td scope="col">{{$c->cantidad_servicio}}</td>
                                             <td scope="col">{{$c->precio}}</td>
-                                            <td scope="col">{{$c->valor}}</td>
+                                            <td scope="col"></td>
                                         </tr> 
                                     </tbody>   
                                 @endif

@@ -39,23 +39,31 @@
   font-weight: 700;
 }
 .btn_login1{
-  background-color: #482359 !important;
-  border: 1px solid #48235900;
-  border-radius: 5px;
-  color: #fff !important;
+    background-color: #482359 !important;
+    /* border: 1px solid #48235900; */
+    border-radius: 5px;
+    color: #fff !important;
+    width: 100%;
 }
 .btn_login1:hover{
   background-color: #55296a !important;
-  border: 1px solid #48235900;
+  /* border: 1px solid #48235900; */
   border-radius: 5px;
 }
 .btn_login2{
   background-color: #EB5D1C !important;
   color: #fff !important;
+  border-radius: 5px;
+  width: 100%;
 }
 .btn_login2:hover{
   background-color: #f26727 !important;
   border: 1px solid #48235900;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6dfd00 !important;
 }
 
 /********************** menu inicio  **********************/

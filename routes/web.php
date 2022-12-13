@@ -34,8 +34,6 @@ Route::post("/iniciar_sesion", [LoginController::class, "iniciar_sesion"])->name
 Route::post("/cerrar_sesion", [LogOutController::class, "cerrar_sesion"])->name('cerrar_sesion');
 
 
-
-
 Route::get("inicio_index", [VisitaController::class, "inicio_index"])->name('inicio_index');
 Route::get("brandingEstrategico_index", [VisitaController::class, "brandingEstrategico_index"])->name('brandingEstrategico_index');
 Route::get("socialMedia_index", [VisitaController::class, "socialMedia_index"])->name('socialMedia_index');
@@ -63,7 +61,15 @@ Route::post("editar_proforma/{id}", [ProformaController::class, "editar_proforma
 // Seguridad
 Route::get("roles", [SeguridadController::class, "roles"])->name('roles');
 Route::get("usuarios", [SeguridadController::class, "usuarios"])->name('usuarios');
+
 Route::get("form_nuevo_usuario", [SeguridadController::class, "form_nuevo_usuario"])->name('form_nuevo_usuario');
+Route::post("guardar_usuario", [SeguridadController::class, "guardar_usuario"])->name('guardar_usuario');
+
+Route::post("/eliminar_usuario", [SeguridadController::class, "eliminar_usuario"])->name('eliminar_usuario');
+
+Route::get("/form_editar_usuario/{id}", [SeguridadController::class, "form_editar_usuario"])->name('form_editar_usuario');
+Route::post("/editar_usuario", [SeguridadController::class, "editar_usuario"])->name('editar_usuario');
+
 
 // Admin
 Route::get("inicioAdmin", [AdminController::class, "inicioAdmin"])->name('inicioAdmin');
@@ -110,3 +116,4 @@ Route::post("form_guardar_editando_huella/{id}", [HuellaDigitalController::class
 
 // Proforma
 Route::get("pdf_huella_digital/{id}", [HuellaDigitalController::class, "pdf_huella_digital"])->name('pdf_huella_digital');
+Route::get("form_proforma", [ProformaController::class, "form_proforma"])->name('form_proforma');

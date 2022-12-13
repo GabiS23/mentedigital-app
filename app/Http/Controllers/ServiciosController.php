@@ -83,13 +83,13 @@ class ServiciosController extends Controller
         $query="with recursive tree as (
             select
             p.id_seccion_servicio,p.id_padre, p.nombre,p.descripcion,p.precio, 0 as nivel
-			,p.id_seccion_servicio ::text as orden, p.id_nivel,p.id_plataforma_digital,p.valor
+			,p.id_seccion_servicio ::text as orden, p.id_nivel,p.id_plataforma_digital,p.cantidad_servicio
             from pro.seccion_servicio p
             where (p.id_padre is NULL or p.id_padre=0)
             union all
             select
             p1.id_seccion_servicio,p1.id_padre, p1.nombre,p1.descripcion,p1.precio, p.nivel+1 as nivel
-			, (p.orden ||'->'|| p1.id_seccion_servicio)::text as orden, p1.id_nivel,p1.id_plataforma_digital,p1.valor
+			, (p.orden ||'->'|| p1.id_seccion_servicio)::text as orden, p1.id_nivel,p1.id_plataforma_digital,p1.cantidad_servicio
             from pro.seccion_servicio p1
             join tree p on   p.id_seccion_servicio = p1.id_padre
             )
@@ -102,7 +102,7 @@ class ServiciosController extends Controller
             t.precio,
 			t.orden,
             n.descripcion_nivel,
-            t.valor
+            t.cantidad_servicio
 			from tree t
             left join pro.tnivel n on n.id_nivel=t.id_nivel
             left join pro.tplataforma_digital pd on pd.id_plataforma_digital=t.id_plataforma_digital 

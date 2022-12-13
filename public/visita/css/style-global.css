@@ -21,14 +21,14 @@ h1 {
 
 h2 {
   font-size: 22px !important;
-  color:#280443 !important;
+  color:#482359 !important;
   font-weight: 800;
   text-transform: uppercase;
   
 }
 
 h3 {
-  color:#280443 !important;
+  color:#482359 !important;
   font-size: 19px;
   font-weight: 800 !important;
   padding-top: 15px !important;
@@ -44,7 +44,7 @@ h4 {
 
 h5 {
   font-size: 28px;
-  color: #FE420C;
+  color: #EB6225;
   font-weight: bold;
 }
 
@@ -72,7 +72,7 @@ p{
   
 }
 .icono-social{
-  color:#280443;
+  color:#482359;
   /* font-size:20px; */
   
 }
@@ -90,10 +90,10 @@ p{
 }
 
 .icono-socia2{
-  color:#280443;
+  color:#482359;
   font-size:22px !important;
   padding: 5px 5px 5px 5px;
-  background-color: #280443;
+  background-color: #482359;
   border-radius: 50px;
 }
 /* menu servicios *********************************** */
@@ -122,22 +122,22 @@ align-items: center;
 width:400px;
 }
 .boton_personalizado{
-  background-color:#28044300;
+  background-color:#EB6225;
   color:#fff;
-  border-radius:5px;
+  border-radius:50px;
   /* box-shadow: 2px 2px 6px  #b1b1b1; */
-  font-size: 20px !important;
-  padding:12px;
-  padding-left: 30px;
-  padding-right: 30px;
-  border: 1px;
-  outline: 1px solid #ffffff;
+  /* font-size: 20px !important; */
+  padding:5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  /* border: 1px; */
+  /* outline: 1px solid #ffffff; */
     /* padding:15px; */
   font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 .boton_personalizado:hover{
-  background-color:#532868;
+  background-color:#e05b36;
   color:#fff;
 }
 
@@ -226,13 +226,13 @@ height: auto;
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #280443 !important;
+  color: #482359 !important;
   font-size: 20px !important;
   text-decoration: none;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 a:hover {
-  color: #280443 !important;
+  color: #482359 !important;
 }
 a.nav-link:hover{
   background-color: #e6e6e6;
@@ -240,13 +240,13 @@ a.nav-link:hover{
   color: #fff;
 }
 .escritor{
-  color: #FE420C;
+  color: #EB6225;
 }
 
 /* ***************mision estilos****************** */
 .titulo-seccion{
   text-align:center;
-  color: #280443 !important;
+  color: #482359 !important;
 }
 .mision{ 
   /* width: 90%; */
@@ -255,7 +255,7 @@ a.nav-link:hover{
   padding: 40px 25px 40px 25px;
   text-align: left;
   background-color: #ffffff;
-  /* border-bottom: 6px solid #280443; */
+  /* border-bottom: 6px solid #482359; */
   color: #000 ;
 
 }
@@ -285,7 +285,7 @@ a.nav-link:hover{
 
 #services .service-icon {
   float: left;
-  background: #280443;
+  background: #482359;
   padding: 16px;
   border-radius: 50%;
   transition: 0.5s;
@@ -303,11 +303,11 @@ a.nav-link:hover{
 }
 
 #services .service-item:hover .service-icon i {
-  color: #280443;
+  color: #482359;
 }
 /**********************icono de mision vision******************/
 #services .service-icon2 {
-  background: #280443;
+  background: #482359;
   padding: 16px;
   border-radius: 50%;
   transition: 0.5s;
@@ -325,7 +325,7 @@ a.nav-link:hover{
 }
 
 #services .service-item2:hover .service-icon2 i {
-  color: #280443;
+  color: #482359;
 }
 /***********************fin icono de mision vision*******************/
 #services .service-title {
@@ -334,19 +334,19 @@ a.nav-link:hover{
   margin-bottom: 10px;
   text-transform: uppercase;
   text-decoration: bold;
-  color: #280443 !important;
+  color: #482359 !important;
   padding-top: 0px;
 }
 
 #services .service-title a {
-  color: #280443;
+  color: #482359;
   text-decoration: none;
 }
 
 #services .service-description {
   margin-left: 80px;
   line-height: 24px;
-  color: #280443;
+  color: #482359;
   padding-bottom: 15px;
 }
 
@@ -437,15 +437,15 @@ position:absolute;
 }
 .btn-servicios{
   border-radius: 40px;
-  background-color:#280443;
-  border-color:#280443;
+  background-color:#482359;
+  border-color:#482359;
   padding: 10px 10px 10px 10px;
   border-radius: 50px;
   margin: 10px 0px 0px 0px;
   width:300px;
 }
 .btn-servicios:hover{
-  background-color: #280443;
+  background-color: #482359;
   color: #fff;
 }
 /* *********************************************servicios*************************************** */
@@ -463,7 +463,7 @@ align-items: center;
   padding-top:80px;
 }
 .servicio-contenido h2{
-  color: #280443;
+  color: #482359;
 }
 .servicio-contenido2{
   background-color:#f9f9f9; 
@@ -477,7 +477,7 @@ align-items: center;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 30px;
   text-align: left;
-  background-color: #280443;
+  background-color: #482359;
   margin: 20px;
   color: #fff !important;
 }
@@ -495,14 +495,14 @@ align-items: center;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 30px;
   text-align: center;
-  background-color: #280443;
+  background-color: #482359;
   margin: 15px;
 }
 .cuadrado4 p,h3{
-  color: #280443 !important;
+  color: #482359 !important;
 }
 .cuadrado{
-  /* outline: 3px solid #280443;
+  /* outline: 3px solid #482359;
   padding:15px; */
   /* width: 90%; */
   border-radius: 5px;
@@ -510,7 +510,7 @@ align-items: center;
   padding: 40px 40px 40px 40px;
   text-align: left;
   background-color: #ffffff;
-  /* border-bottom: 6px solid #280443; */
+  /* border-bottom: 6px solid #482359; */
 }
 .cuadradoo{
   padding-bottom: 30px;
@@ -530,7 +530,7 @@ align-items: center;
 .footer {
   width: 100%;
   padding: 0px 0px;
-  background-color: #280443;
+  background-color: #482359;
   color: #fff;
   margin-top: 40px;
 }
@@ -696,7 +696,7 @@ box-sizing: border-left;
   width:23%; /*Establecemos el ancho en % de los ítems*/
   box-sizing: border-box;
   /* border: 2px solid #000; */
-  background-color:#280443;
+  background-color:#482359;
   border-radius:5px;
   margin:10px;
   text-align:center;
@@ -717,8 +717,8 @@ box-sizing: border-left;
 .form-contenido a{
   color: #fff;
   border-radius: 40px;
-  background-color:#280443;
-  border-color:#280443;
+  background-color:#482359;
+  border-color:#482359;
   padding: 12px 12px 12px 12px;
   border-radius: 50px;
   margin: 10px 0px 0px 0px;
@@ -757,7 +757,7 @@ box-sizing: border-left;
   width:48%; /*Establecemos el ancho en % de los ítems*/
   box-sizing: border-box;
   /* border: 2px solid #000; */
-  /* background-color:#280443; */
+  /* background-color:#482359; */
   border-radius:5px;
   margin:10px;
   text-align:left;
@@ -795,7 +795,7 @@ box-sizing: border-left;
     color:#fff !important;
 }
 .centrado a{
-    background-color: #FE420C;
+    background-color: #EB6225;
     border-radius: 50px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
@@ -815,7 +815,7 @@ box-sizing: border-left;
   transform: scale(1.1);
 }
 .circle{
-  background-color: #280443;
+  background-color: #482359;
   color: #fff;
   border-radius: 5px;
   padding: 10px;

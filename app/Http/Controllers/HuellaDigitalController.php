@@ -175,7 +175,7 @@ class HuellaDigitalController extends Controller
             t.pregunta,
             t.titulo,
 			t.id_padre,
-			ss.valor,
+			--ss.valor,
 			hdr.id_seccion_servicio
             from tree t
 			left join pro.thuella_digital_respuesta hdr on hdr.id_seccion_servicio=t.id_nivel and hdr.id_huella_digital=?
@@ -184,7 +184,7 @@ class HuellaDigitalController extends Controller
 			resultado as (
 			select 
 			r.id_nivel, 
-			r.valor,
+			--r.valor,
 			case when r.id_seccion_servicio is not null then 1 else 0 end as chek_respuestas ,
 			case when r.id_seccion_servicio is null then 1 else 0 end as check_null
 			from respuestas r 
@@ -357,7 +357,7 @@ class HuellaDigitalController extends Controller
             t.pregunta,
             t.titulo,
             t.id_padre,
-            ss.valor,
+            --ss.valor,
             hdr.id_seccion_servicio
             from tree t
             left join pro.thuella_digital_respuesta hdr on hdr.id_seccion_servicio=t.id_nivel and hdr.id_huella_digital=?
@@ -366,7 +366,7 @@ class HuellaDigitalController extends Controller
             resultado as (
             select 
             r.id_nivel, 
-            r.valor,
+            --r.valor,
             case when r.id_seccion_servicio is not null then 1 else 0 end as chek_respuestas ,
             case when r.id_seccion_servicio is null then 1 else 0 end as check_null
             from respuestas r 

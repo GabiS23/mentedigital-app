@@ -7,6 +7,8 @@
              **/
             @page {
                 margin: 0cm 0cm;
+                margin-bottom: 0px;
+                padding:200px;
             }
 
             /** Defina ahora los márgenes reales de cada página en el PDF **/
@@ -14,7 +16,7 @@
                 margin-top: 3cm;
                 margin-left: 2cm;
                 margin-right: 2cm;
-                margin-bottom: 2cm;
+                /* margin-bottom: 50px; */
             }
 
             /** Definir las reglas del encabezado **/
@@ -22,7 +24,9 @@
                 position: fixed;
                 top: 0cm;
                 left: 0cm;
-                right: 0cm;
+                right: 0.5cm;
+                
+                /* margin-top: 50px; */
                 /* height: 3cm; */
             }
 
@@ -32,7 +36,12 @@
                 bottom: 0cm; 
                 left: 0cm; 
                 right: 0cm;
-                /* height: 0cm; */
+                height: 3cm;
+            }
+            .firma{
+                text-align:center;
+                color: #EB6225;
+                padding-top: 35px;
             }
         </style>
     </head>
@@ -42,11 +51,11 @@
         <header style="text-align:center;">
             <img src="visita/imagen_empresa/huella-digital/cabecera.png" height=150/>
         </header>
-
-        <footer style="text-align:center;">
+        <br><br>
+        <!-- <footer style="text-align:center;">
             <img src="visita/imagen_empresa/huella-digital/pie.png" height=150 width=100% />
-        </footer>
-        <br>
+        </footer> -->
+       
         <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
         <main style="margin-right: 50px; margin-left: 50px;">
             <div class="fecha" style="text-align: right;">
@@ -60,7 +69,7 @@
                 <div class="propuesta" style="margin-left: 20px;">
                     @foreach($arrayParametros['lista_cuestionario'] as $p)
                         @if($p->titulo=='si')
-                            <p style="color:#EB5D1C;"><b>{{$p->pregunta}}</b></p>
+                            <p style="color:#EB5D1C;"><b>{{$p->pregunta}}</b></p> 
                         @else
                         <div class="form-check" style="margin-left: 20px;">
                             @if($p->id_seccion_servicio != null)
@@ -73,10 +82,40 @@
                         @endif
                     @endforeach
                 </div>
+                <p>
+                En base a este diagnóstico y los 44 servicios en publicidad digital que ofrecemos mediante nuestras 10 especialidades, le sugerimos los siguientes servicios:
+                <br>
+                    <ul>
+                        <li>BRANDING ESTRATÉGICO.</li>
+                        <li>CREACIÓN DE CONTENIDO DIGITAL.</li>
+                        <li>DISEÑO GRÁFICO.</li>
+                        <li>SOCIAL MEDIA MARKETING - SEM (mejorar la visibilidad de su marca en los buscadores a través de acciones de marketing pagadas).</li>
+                        <li>TIK TOK PUBLICITARIO.</li>
+                        <li>FOTOGRAFÍA COMERCIAL.</li>
+                        <li>PRODUCCIÓN AUDIOVISUAL.</li>
+                        <li>EDICIÓN DIGITAL.</li>
+                        <li>RELACIONES PÚBLICAS DIGITALES.</li>
+                    </ul> 
+                <br>
+                Le invitamos a agendar una reunión para brindarle nuestro asesoramiento 360 en
+                publicidad digital, lo cual nos permitirá realizar una oferta específica y adecuada a sus
+                requerimientos comerciales y económicos. Este asesoramiento no implica ningún tipo de
+                costo ni compromiso comercial de nuestra agencia y se podrá realizar en su empresa
+                cuando ustedes lo requieran. Esperando una respuesta positiva, nos despedimos
+                deseándoles éxitos en sus metas empresariales.
+                <br>
+                Saludos Cordiales,
+                
+                <div class="firma">
+                    Área de Marketing Mente Digital
+                </div>
+                
+                </p>
             </div>  
             
             
         </main>
+        
     </body>
 </html>
 

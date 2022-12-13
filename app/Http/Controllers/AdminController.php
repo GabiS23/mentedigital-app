@@ -24,6 +24,6 @@ class AdminController extends Controller
         
         return view('contenedor.admin.inicioAdmin');
     }
-   
+    
 
 }
