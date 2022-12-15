@@ -7,7 +7,7 @@
         <div class="col-sm-12 col-md-12 col-xl-12">
             <div class="card">
                 <form method="GET" id="form" name="form" action="#" enctype="multipart/form-data">
-                    {{ csrf_field() }}F 
+                    {{ csrf_field() }}
                     <div class="contenido">
                         <div class="crud"> 
                             <h4>Lista de proformas</h4>

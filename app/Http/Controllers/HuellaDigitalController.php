@@ -31,20 +31,21 @@ class HuellaDigitalController extends Controller
     public function huella_digital(){
 
         $lista_huella_digital=DB::select('select 
-                                        hd.id_huella_digital, 
-                                        hd.fecha_reg,
-                                        hd.total_preguntas,
-                                        hd.total_nulos,
-                                        hd.chek_respuestas,
-                                        hd.respuesta_porcentaje,
-                                        hd.fecha_mod,  
-                                        hd.nro_huella_digital, 
-                                        hd.usuario_mod, 
-                                        hd.id_empresa, 
-                                        e.nombre_marca,
-                                        e.rubro
-                                        FROM pro.thuella_digital hd
-                                        join pro.tempresa e on e.id_empresa=hd.id_empresa');
+                                            hd.id_huella_digital, 
+                                            hd.fecha_reg,
+                                            hd.total_preguntas,
+                                            hd.total_nulos,
+                                            hd.chek_respuestas,
+                                            hd.respuesta_porcentaje,
+                                            hd.fecha_mod,  
+                                            hd.nro_huella_digital, 
+                                            hd.usuario_mod, 
+                                            hd.id_empresa, 
+                                            e.nombre_marca,
+                                            e.rubro
+                                            FROM pro.thuella_digital hd 
+                                            join pro.tempresa e on e.id_empresa=hd.id_empresa
+                                            order by hd.id_huella_digital desc');
 
         $arrayParametros = array(
             'lista_huella_digital' => $lista_huella_digital
@@ -237,7 +238,7 @@ class HuellaDigitalController extends Controller
             (t.orden || '->' || vc.id_nivel)::text as orden,
             vc.titulo
             from pro.vcuestionario vc
-            join tree t on t.id_nivel=vc.id_padre
+            join tree t on t.id_nivel=vc.id_padre)
             select 
             t.id_nivel,
             t.pregunta,

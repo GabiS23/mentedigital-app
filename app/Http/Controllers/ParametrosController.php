@@ -19,8 +19,8 @@ class ParametrosController extends Controller
     }
     public function marca(){
 
-        $lista_marca=DB::select("SELECT id_empresa,nombre_marca 
-        FROM pro.tempresa ORDER BY nombre_marca ASC;");
+        $lista_marca=DB::select("SELECT id_empresa, nombre_marca
+        FROM pro.tempresa ORDER BY id_empresa desc;");
 
         $arrayParametros = array(
             'lista_marca' => $lista_marca
@@ -36,32 +36,16 @@ class ParametrosController extends Controller
         // dd('Hola nueva marca');
         $arrayParametros = array(
             'lista_empresa' => $lista_empresa,
-            'nombre_marca'=>"",
-                                );
+            'nombre_marca'=>"");
                                 
         return view('contenedor.admin.parametros.form_nueva_marca',$arrayParametros);
     }
     public function nueva_marca(Request $request){
         $lista_marca=DB::select("select 
                             e.id_empresa,
-                            e.nombre_marca, 
-                            e.fecha_ingreso, 
-                            e.rubro, 
-                            e.telefono, 
-                            e.celular, 
-                            e.direccion, 
-                            e.fecha_aniversario, 
-                            e.ciudad, 
-                            e.provincia, 
-                            e.usuario_mod, 
-                            e.fecha_reg, 
-                            e.fecha_mod, 
-                            p.nombre_pais,
-                            u.name
+                            e.nombre_marca
                             from pro.tempresa e
-                            join segu.users u on u.id=e.usuario_reg
-                            join pro.tpais p on p.id_pais=e.id_pais
-                                                ");
+                            ");
         $lista_empresa= DB::select('SELECT 
                                 id_empresa, 
                                 nombre_marca
@@ -70,10 +54,11 @@ class ParametrosController extends Controller
         DB::insert('INSERT INTO pro.tempresa(
             fecha_reg,nombre_marca)
             VALUES (now()::TIMESTAMP,?);',[$request->nombre_marca]);
+
          $arrayParametros = array(
             'lista_empresa' => $lista_empresa,
             'lista_marca' => $lista_marca,
-            'nombre_marca'=>$request->nombre_marca,
+            'nombre_marca'=>$request->nombre_marca
                                 );
                                 // dd($arrayParametros);
         return view('contenedor.admin.parametros.form_nueva_marca',$arrayParametros );

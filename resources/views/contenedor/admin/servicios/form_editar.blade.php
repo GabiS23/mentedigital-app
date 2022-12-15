@@ -67,7 +67,7 @@
                                             <input type="text" class="form-control" id="descripcion" name="descripcion" aria-describedby="emailHelp" value="<?php echo $descripcion; ?>">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Precio</label>
+                                            <label for="exampleInputEmail1" class="form-label">Precio Unitario en Bs</label>
                                             <input type="text" class="form-control" id="precio" name="precio" aria-describedby="emailHelp" value="<?php echo $precio; ?>">
                                         </div>
                                         @else
