@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-    <meta name="description" content="Representacion y venta de instrumentos musicales y audio pro en Bolivia">
+    <meta name="description" content="Agencia de marketing digital Bolivia">
   <meta name="keywords"
-    content="Venta de instrumentos musicales en Cochabamba Bolivia, venta de parlantes en Bolivia, Venta de sistemas de sonido DAS Audio en Bolivia, Venta de Consolas Yamaha audio pro en Bolivia, Venta de parlantes en Cochabamba">
+    content="Marketing, Marketing digital cochabamba, Marketing digital Bolivia">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://madakmusic.com/">

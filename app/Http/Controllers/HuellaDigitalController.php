@@ -243,7 +243,7 @@ class HuellaDigitalController extends Controller
             t.id_nivel,
             t.pregunta,
             t.titulo,
-			hdr.id_seccion_servicio
+			hdr.id_seccion_servicio 
             from tree t
 			left join pro.thuella_digital_respuesta hdr on hdr.id_seccion_servicio=t.id_nivel and hdr.id_huella_digital=".$id."::integer
 			left join pro.seccion_servicio ss on ss.id_seccion_servicio=t.id_nivel

@@ -26,11 +26,6 @@
     <link href="{{asset('visita/dist/themes/default/style.css')}}" rel="stylesheet">
 	<!-- sidebar -->
 
-    
-
-    
-
-    
     <!-- links footer, adata ble -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
@@ -175,23 +170,31 @@
         </div>
         <div class="top-right">
             <div class="header-menu">
-                <div class="header-left">
+                <!-- <div class="header-left">
                     
-                </div>
+                </div> -->
                 <div class="user-area dropdown float-right">
-                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="user-avatar rounded-circle" src="{{asset('visita/imagen_empresa/logos/perfilFace.png')}}" alt="User Avatar">
+                    <a href="#"  class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="user-avatar rounded-circle" src="{{asset('visita/imagen_empresa/logos/perfilFace.png')}}" alt="User Avatar"> 
                     </a>
 
                     <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
-                        <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
-
-                        <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
-                        <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        <!-- <a class="nav-link" href="#" ><i class="fa fa-power -off"></i>Cerrar sesión</a> -->
+                        <br><br><br>
+                        <form method="POST" action="{{ route('cerrar_sesion') }}">
+                            @csrf
+                            <button type="submit" ><i class="fa fa-sign-out" style="color:red;"></i>Salir</button>
+                        </form>
                     </div>
+                   
+                       
+                   
+
+
+
+
+
+                    
                 </div>
             </div>
         </div>
@@ -474,3 +477,8 @@
     </script> -->
   </body>
 </html>
+<script>
+    function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+</script>

@@ -17,7 +17,7 @@
                                     <a id="atras" href="{{ route('huella_digital')}}" data-toggle="tooltip" data-placement="top" title="Atras"><i class="fa fa-solid fa-arrow-left"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="row">
                             <div class="col md-12">
                                 <div class="crud">

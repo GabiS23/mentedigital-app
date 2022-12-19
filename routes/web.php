@@ -29,6 +29,7 @@ use App\Http\Controllers\HuellaDigitalController;
 Route::get('/', function () {
     return view('contenedor/visita/inicio');
 });
+Auth::routes();
 Route::get("/login", [LoginController::class, "login"])->name('login');
 Route::post("/iniciar_sesion", [LoginController::class, "iniciar_sesion"])->name('iniciar_sesion');
 Route::post("/cerrar_sesion", [LogOutController::class, "cerrar_sesion"])->name('cerrar_sesion');
@@ -91,6 +92,15 @@ Route::post("editar_marca/{id}", [ProformaController::class, "editar_marca"])->n
 // Route::get("selectPlan/{id}", [ProformaController::class, "selectPlan"])->name('selectPlan');
 Route::get("selectEspecialidad/{id}", [ProformaController::class, "selectEspecialidad"])->name('selectEspecialidad');
 Route::get("getServicios", [ProformaController::class, "getServicios"])->name('getServicios');
+Route::post("guardar_proforma", [ProformaController::class, "guardar_proforma"])->name('guardar_proforma');
+Route::get("form_editar_proforma/{id}", [ProformaController::class, "form_editar_proforma"])->name('form_editar_proforma');
+Route::post("form_guardar_editando_proforma", [ProformaController::class, "form_guardar_editando_proforma"])->name('form_guardar_editando_proforma');
+Route::get("pdf_proforma/{id}", [ProformaController::class, "pdf_proforma"])->name('pdf_proforma');
+
+// Proforma
+Route::get("form_proforma", [ProformaController::class, "form_proforma"])->name('form_proforma');
+
+
 
 // Servicios
 Route::get("servicio", [ServiciosController::class, "servicio"])->name('servicio');
@@ -113,7 +123,9 @@ Route::post("form_guardar_huella", [HuellaDigitalController::class, "form_guarda
 
 Route::get("form_editar_huella/{id}", [HuellaDigitalController::class, "form_editar_huella"])->name('form_editar_huella');
 Route::post("form_guardar_editando_huella/{id}", [HuellaDigitalController::class, "form_guardar_editando_huella"])->name('form_guardar_editando_huella');
-
-// Proforma
 Route::get("pdf_huella_digital/{id}", [HuellaDigitalController::class, "pdf_huella_digital"])->name('pdf_huella_digital');
-Route::get("form_proforma", [ProformaController::class, "form_proforma"])->name('form_proforma');
+
+
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

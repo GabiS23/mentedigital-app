@@ -27,7 +27,9 @@
                 <br>
                 <div class="row">
                   <div class="col-sm-6 col-md-6 col-lg-6 mx-auto">
-                    <a class="btn btn-primary btn_login1" type="submit" href="{{route('inicioAdmin') }}">Aceptar</a>
+                    <!-- <a class="btn btn-primary btn_login1" type="submit">Aceptar</a> -->
+                    <button class="button btn btn-sm  btn-primary btn-block" type="submit" ><i class="fas fa-angle-double-right"></i> Aceptar</button>
+
                   </div>
                   <div class="col-sm-6 col-md-6 col-lg-6 mx-auto">
                     <a class="btn btn-primary btn_login2" href="{{ route('inicio_index') }}">Cancelar</a>

@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
 
+
+
+
 class LoginController extends Controller
 {
     /**
@@ -52,5 +55,6 @@ class LoginController extends Controller
             return view('contenedor/login/iniciar_sesion',$arrayParametros); 
         }
     }
+
     
 }
