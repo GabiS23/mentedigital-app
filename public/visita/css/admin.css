@@ -1,6 +1,18 @@
-.body{
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@100&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin:0 auto; 
+}
+
+/* .body{
   font-family: 'Open Sans';
-}  
+}   */
   
   .centrado_login{
     position: absolute;
@@ -39,11 +51,14 @@
   font-weight: 700;
 }
 .btn_login1{
+  background-color: #55296a !important;
+
     background-color: #482359 !important;
     /* border: 1px solid #48235900; */
     border-radius: 5px;
     color: #fff !important;
     width: 100%;
+    font-family: 'Open Sans' !important;
 }
 .btn_login1:hover{
   background-color: #55296a !important;
@@ -51,6 +66,7 @@
   border-radius: 5px;
 }
 .btn_login2{
+  font-family: 'Open Sans' !important;
   background-color: #EB5D1C !important;
   color: #fff !important;
   border-radius: 5px;

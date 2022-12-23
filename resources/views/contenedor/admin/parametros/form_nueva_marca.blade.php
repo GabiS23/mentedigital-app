@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <form method="POST" id="nueva_marca" name="nueva_marca" action="{{route('nueva_marca')}}" enctype="multipart/form-data">
                             
                                 {{ csrf_field() }}
@@ -31,14 +31,13 @@
                                     <input type="text" class="form-control"  id="nombre_marca" name="nombre_marca" placeholder="Nombre de la marca" value="{{$nombre_marca}}">
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <button type="submit" class="btn_login2 button btn btn-primary btn-block"  href="#"><i class="fas fa-angle-double-right"></i> Guardar</button>
-                                        </div>
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn_login2 button btn btn-primary btn-block"  href="#"><i class="fas fa-angle-double-right"></i> Guardar</button>
+                                         
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <a class="btn_login1 button btn btn-secondary btn-block " href="{{route('marca')}}"><i class="fas fa-reply "></i> Cancelar</a>
+                                    <div class="col-md-6">
+                                        <div class="">
+                                            <a class="btn_login1 button btn btn-primary btn-block " href="{{route('marca')}}"><i class="fas fa-reply "></i> Cancelar</a>
                                         </div>
                                     </div>
                                 </div>

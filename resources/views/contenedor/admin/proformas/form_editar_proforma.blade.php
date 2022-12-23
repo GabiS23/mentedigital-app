@@ -57,28 +57,21 @@
                                             @endforeach
                                     </select>
                                 </div> 
-                                <!-- <div class="col-md-4">
-                                    <label for="exampleInputEmail1" class="form-label">Fecha</label>
-                                    <input type="date" class="form-control" id="fecha" name="fecha" aria-describedby="emailHelp">
-                                </div> -->
+                                
                                 
                                 <div class="col-md-4">
                                     <label for="exampleInputEmail1" class="form-label" >Estado</label>
                                     <select id="estado" name="estado" class="form-control">
                                         <option value="0">Elegir</option>
-
-                                        @if($estado_seleccionado = "aprobado")
+                                        <?php if($estado_seleccionado=='aprobado'){  ?>
                                             <option value="aprobado" selected>{{$estado_seleccionado}}</option>
                                             <option value="propuesta">Propuesta</option>
-                                        @else 
-                                            @if($estado_seleccionado = "propuesta")
-                                                <option value="aprobado">Aprobado</option>
-                                                <option value="propuesta" selected>{{$estado_seleccionado}}</option>
-                                            @endif
-                                        @endif
+                                        <?php  } else{?>
+                                            <option value="aprobado">Aprobado</option>
+                                            <option value="propuesta" selected>{{$estado_seleccionado}}</option>
+                                        <?php  }?>
+                                       
 
-                                        <!-- <option value="aprobado" selected>Aprobado</option>
-                                        <option value="propuesta">Propuesta</option> -->
                                     </select>
                                 </div>
 
@@ -132,13 +125,14 @@
                                                 </td>
                                                 <td align="center">
                                                     <div style="text-align:center;">
-                                                        @if($s->id_seccion_servicio)
-                                                            <input onclick='chekar( "{{$s->id_seccion_servicio}}");' checked type="checkbox" id="{{'check_'.$s->id_seccion_servicio}}"  name="{{'check_'.$s->id_seccion_servicio}}" style="margin:0px;padding:0px;zoom: 2.5;" >
-                                                        @else
-                                                            <!-- <input class="form-check-input"  type="checkbox" value=''> -->
+                                                        <?php if($s->id_proforma_detalle==null){  ?>
                                                             <input onclick='chekar( "{{$s->id_seccion_servicio}}");' type="checkbox" id="{{'check_'.$s->id_seccion_servicio}}"  name="{{'check_'.$s->id_seccion_servicio}}" style="margin:0px;padding:0px;zoom: 2.5;" >
-                                                        @endif
-                                                    
+
+                                                        <?php  } else{?>
+                                                            <input onclick='chekar( "{{$s->id_seccion_servicio}}");' checked type="checkbox" id="{{'check_'.$s->id_seccion_servicio}}"  name="{{'check_'.$s->id_seccion_servicio}}" style="margin:0px;padding:0px;zoom: 2.5;" >
+
+                                                        <?php  }?>
+                                                        
                                                     
                                                     
                                                     </div>

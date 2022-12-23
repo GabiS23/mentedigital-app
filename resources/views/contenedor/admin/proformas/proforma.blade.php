@@ -25,7 +25,6 @@
                                 <tr> 
                                     <th scope="col" hidden="hide">Id proforma</th>
                                     <th scope="col">Nro</th>
-                                    <th scope="col">Num. proforma</th>
                                     <th scope="col">Marca</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Fecha reg</th>
@@ -39,7 +38,6 @@
                                 <tr onclick="seleccionar_proforma({{$p->id_proforma}})" data-node-id='<?php echo ($p->id_proforma); ?>'>
                                     <td hidden="hide">{{$p->id_proforma}}</td>
                                     <td><?php echo($contador); ?></td>
-                                    <td>{{$p->nro_proforma}}</td>
                                     <td>{{$p->nombre_marca}}</td>
                                     <td>{{$p->estado}}</td>
                                     <td>{{$p->fecha_reg}}</td>
@@ -87,7 +85,7 @@
     function pdf(){
         
         var url="{{route('pdf_proforma',['id'=>'temp'])}}";
-        var url = url.replace('temp',var_id_huella);
+        var url = url.replace('temp',var_proforma);
         location.href = url;
         
     }

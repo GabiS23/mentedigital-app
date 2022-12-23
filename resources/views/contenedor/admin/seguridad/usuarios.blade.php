@@ -24,7 +24,7 @@
                                 </tr>
                             </thead>
                             <tbody id="tbodyid">
-                                <?php $nro=0; ?>
+                                <?php $nro=0; ?> 
                                 @foreach($lista_usuarios as $u)
                                 <?php $nro++; ?>
                                 <tr>
@@ -37,9 +37,9 @@
                                             <!-- Button -->
                                             <ul>    
                                                 <li>
-                                                    <div class="crud" style="text-decoration:none;">
-                                                        <a href="{{ route('form_editar_usuario',$u->id) }}" id="editar"><i class="fa fa-pencil-square" aria-hidden="true" onclick="editar()"></i></a>
-                                                        <a id="eliminar"><i class="fa fa-trash" aria-hidden="true" onclick="eliminar_usuario({{$u->id}})"></i></a>
+                                                    <div class="crud" style="text-decoration:none !important;">
+                                                        <a href="{{ route('form_editar_usuario',$u->id) }}" id="editar" style="text-decoration:none !important;"><i class="fa fa-pencil-square" aria-hidden="true" onclick="editar()"></i></a>
+                                                        <a id="eliminar" style="text-decoration:none !important;"><i class="fa fa-trash" aria-hidden="true" onclick="eliminar_usuario({{$u->id}})"></i></a>
                                                     </div>
                                                 </li>
                                             </ul>

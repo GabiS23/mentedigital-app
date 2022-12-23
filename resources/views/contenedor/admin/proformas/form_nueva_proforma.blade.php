@@ -31,10 +31,9 @@
         <div class="row">
             <div class="col-sm-12 col-md-12 col-xl-12">
                 <div class="card">
-                    
                         <div class="contenido">
                             <div class="crud">
-                                <h3>NUEVA PROFORMA</h3>
+                                <h5>NUEVA PROFORMA</h5>
                                 <a id="atras" href="{{route('proforma')}}" data-toggle="tooltip" data-placement="top" title="Atras"><i class="fa fa-solid fa-arrow-left"></i></a>
                                 <br>
                                 <h4>Datos del cliente</h4>
@@ -51,6 +50,7 @@
                                         @endforeach
                                     </select>
                                 </div> 
+                                
                                 <div class="col-md-4">
                                     <label for="exampleInputEmail1" class="form-label" >Estado</label>
                                     <select id="estado" name="estado" class="form-control">
@@ -193,7 +193,7 @@
                     Swal.fire('Alerta!',
                     'Seleccione un estado',
                     'error');
-                }
+            }
             
             else{
                 document.getElementById('form').submit();    

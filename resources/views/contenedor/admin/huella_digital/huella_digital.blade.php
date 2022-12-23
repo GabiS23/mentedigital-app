@@ -18,7 +18,7 @@
                 <form method="GET" id="form" name="form" action="#" enctype="multipart/form-data">
                     {{ csrf_field() }} 
                     <div class="contenido">
-                        <div class="crud"> 
+                        <div class="crud">  
                             <h4>Lista de huellas digitales</h4>
                             <a id="agregar" href="#"><i class="fa fa-plus-circle" aria-hidden="true" onclick="agregar()"></i></a>
                             <a id="editar"><i class="fa fa-pencil-square" aria-hidden="true" onclick="editar()"></i></a>

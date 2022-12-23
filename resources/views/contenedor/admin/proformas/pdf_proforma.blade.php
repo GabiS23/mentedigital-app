@@ -6,7 +6,8 @@
                 puede ser de altura y anchura completas.
              **/
             @page {
-                margin: 170px 50px;
+                margin: 20px 20px;
+                font-family: 'Roboto', sans-serif;
             }
             /** Defina ahora los márgenes reales de cada página en el PDF **/
             body {
@@ -15,25 +16,7 @@
             }
 
             /** Definir las reglas del encabezado **/
-            header {
-                position: fixed;
-                left: 0px;
-                top: -160px;
-                right: 0px;
-                height: 100px;
-                /* background-color: #ddd; */
-                text-align: center;
-            }
-
-            /** Definir las reglas del pie de página **/
-            footer {
-                position: fixed;
-                left: 0px;
-                bottom: -110px;
-                right: 0px;
-                height: 40px;
-                /* border-bottom: 2px solid #ddd; */
-            }
+            /*  */
             .firma{
                 text-align:center;
                 color: #EB6225;
@@ -42,77 +25,122 @@
             .fecha{
                 text-align:right;
             }
+            .cabecera{
+                text-align:center;
+            }
+            .cabecera h1{
+                color: #FF6D01 !important;
+            }
+            .cabecera h4{
+                color: #482359 !important;
+            }
+            .cabecera b{
+                color: #f26727 !important;
+            }
+            /* table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: center;
+            } */
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                }
+
+                th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #DDD;
+            }
+            thead{
+                background-color: #20124D;
+                color: #fff;
+            }
+            .titulo_seccion{
+                padding:10px;
+                color: #fff;
+                background-color: #FF6D01;
+                text-align:center;
+            }
+
         </style>
     </head>
         
     <body>
         <!-- Defina bloques de encabezado y pie de página antes de su contenido -->
-        <header>
-            <img src="visita/imagen_empresa/huella-digital/cabecera.png" width=700>
-        </header>
-        <footer>
-            <img src="visita/imagen_empresa/huella-digital/pie.png" width=700>
-        </footer>
-        
-        
-       
+        <!-- <header>
+            <br><br>
+            <img src="visita/imagen_empresa/logos/logo2.png" height= 100>
+        </header> -->
         <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
         <main>
             
-            <div class="fecha">
-                <p><?php echo ($arrayParametros['huella_digital'][0]->fecha_registro);?></p> 
+            <div class="cabecera">
+                <img src="visita/imagen_empresa/logos/logo2.png" height= 100>
+                <h1>PRO - FORMA</h1>
+                <h4>SERVICIOS DE MARKETING DIGITAL</h4>
+                <p> <b>Fecha:</b> <?php echo ($arrayParametros['lista_proformas'][0]->fecha_reg);?>
+                    <br>
+                    <b>Nombre:</b> <?php echo ($arrayParametros['lista_proformas'][0]->nombre_marca);?>
+                    <br>
+                    <b>Estado:</b>
+                    <!-- $estado_seleccionado=='aprobado' -->
+                    <?php if($arrayParametros['lista_proformas'][0]->estado =='aprobado'){  ?>
+                        <option value="aprobado" selected>Aprobado</option>
+                        
+                    <?php  } else{?>
+                        
+                        <option value="propuesta" selected>Propuesta</option>
+                    <?php  }?>
+                </p> 
             </div>
-            <div class="mb-6">
-                <p>Estimado(s) <?php echo ($arrayParametros['lista_empresa'][0]->nombre_marca); ?></p>
-                <p style="color: #000;">La huella digital de su marca es el rastro de sus publicaciones y las interacciones de sus seguidores en sus redes sociales.</p>
-                <p style="color: #000;">El nivel actual de eficacia de <b style="color: #EB5D1C;"><?php echo ($arrayParametros['lista_empresa'][0]->nombre_marca); ?></b>  en sus redes sociales es: <b style="color: #EB5D1C;"><?php echo ($arrayParametros['huella_digital'][0]->respuesta_porcentaje); ?>%</b> de 100%</p> 
-                <p>Para que su marca tenga una efectiva presencia en redes sociales y consolide su comunidad de seguidores se recomienda:</p>
-                <div class="propuesta" style="margin-left: 20px;">
-                    @foreach($arrayParametros['lista_cuestionario'] as $p)
-                        @if($p->titulo=='si')
-                            <p style="color:#EB5D1C;"><b>{{$p->pregunta}}</b></p> 
-                        @else
-                        <div class="form-check" style="margin-left: 20px;">
-                            @if($p->id_seccion_servicio != null)
-                                <!-- <input class="form-check-input" checked type="checkbox" value='<?php echo ($p->id_nivel); ?>' id='<?php echo ('pre_'.$p->id_nivel); ?>' name='<?php echo ('pre_'.$p->id_nivel); ?>'> -->
-                                <li><label class="form-check-label" for="flexCheckDefault">
-                                    {{$p->pregunta}}
-                                </label></li>
-                            @endif
-                        </div>
-                        @endif
-                    @endforeach
-                </div>
-                <p>
-                En base a este diagnóstico y los 44 servicios en publicidad digital que ofrecemos mediante nuestras 10 especialidades, le sugerimos los siguientes servicios:
-                <br>
-                    <ul>
-                        <li>BRANDING ESTRATÉGICO.</li>
-                        <li>CREACIÓN DE CONTENIDO DIGITAL.</li>
-                        <li>DISEÑO GRÁFICO.</li>
-                        <li>SOCIAL MEDIA MARKETING - SEM (mejorar la visibilidad de su marca en los buscadores a través de acciones de marketing pagadas).</li>
-                        <li>TIK TOK PUBLICITARIO.</li>
-                        <li>FOTOGRAFÍA COMERCIAL.</li>
-                        <li>PRODUCCIÓN AUDIOVISUAL.</li>
-                        <li>EDICIÓN DIGITAL.</li>
-                        <li>RELACIONES PÚBLICAS DIGITALES.</li>
-                    </ul> 
-                <br>
-                Le invitamos a agendar una reunión para brindarle nuestro asesoramiento 360 en
-                publicidad digital, lo cual nos permitirá realizar una oferta específica y adecuada a sus
-                requerimientos comerciales y económicos. Este asesoramiento no implica ningún tipo de
-                costo ni compromiso comercial de nuestra agencia y se podrá realizar en su empresa
-                cuando ustedes lo requieran. Esperando una respuesta positiva, nos despedimos
-                deseándoles éxitos en sus metas empresariales.
-                <br><br>
-                Saludos Cordiales,
                 
-                <div class="firma">
-                    Área de Marketing Mente Digital
-                </div>
-                
-                </p>
-            </div>  
+            <div class="contenido">
+                <table  class="table border=1">
+                    <thead>
+                        <tr> 
+                            
+                            <th scope="col">Servicio</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Cant</th>
+                            <th scope="col">Precio Unit.</th>
+                            <th scope="col">Sub Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- foreach -->
+                        @foreach($arrayParametros['lista_servicios'] as $s)
+                            <tr>
+                                @if($s->codigo_nivel=='pla')
+                                <td colspan="5" class="titulo_seccion">{{$s->nombre}}</td>
+                                
+                                @else
+                                <td scope="col">{{$s->nombre}}</td>
+                                <td scope="col">{{$s->descripcion}}</td>
+                                <td scope="col">
+                                    <?php echo ($arrayParametros['lista_proforma_detalle'][0]->cantidad_servicio);?>
+                                    <!-- <input id="{{'pre_'.$s->id_seccion_servicio}}" name="{{'pre_'.$s->id_seccion_servicio}}" value="{{$s->precio}}"  type="text" class="form-control" id="inputGroupFile01"> -->
+                                </td>
+                                <td scope="col">
+                                    <?php echo ($arrayParametros['lista_proforma_detalle'][0]->precio_unitario);?>
+                                </td>
+                                <td align="center">
+                                    <div style="text-align:center;">
+                                        <?php echo ($arrayParametros['lista_proforma_detalle'][0]->sub_total);?>
+                                        
+                                    </div>
+                                </td>
+                                @endif
+                            </tr>
+                        @endforeach
+                        <!-- end foreach -->
+                    </tbody>
+                </table>
+            </div>
             
             
         </main>
