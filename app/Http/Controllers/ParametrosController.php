@@ -19,8 +19,8 @@ class ParametrosController extends Controller
     }
     public function marca(){
 
-        $lista_marca=DB::select("SELECT id_empresa, nombre_marca
-        FROM pro.tempresa ORDER BY id_empresa desc;");
+        $lista_marca=DB::select("select e.id_empresa, e.nombre_marca,u.name, e.fecha_reg from pro.tempresa e
+        join segu.users u on u.id=e.usuario_reg");
 
         $arrayParametros = array(
             'lista_marca' => $lista_marca
@@ -33,12 +33,42 @@ class ParametrosController extends Controller
                                 id_empresa, 
                                 nombre_marca
                                 FROM pro.tempresa;');
+        $lista_errores=array();
         // dd('Hola nueva marca');
         $arrayParametros = array(
             'lista_empresa' => $lista_empresa,
-            'nombre_marca'=>"");
+            'lista_errores'=>$lista_errores,
+            'validacion_correcta'=>0,
+            'nombre_marca'=>""
+        );
                                 
         return view('contenedor.admin.parametros.form_nueva_marca',$arrayParametros);
+    }
+
+    public function validacion_marca(Request $request){
+
+        $lista_errores = array();
+
+        if($request->nombre_marca==""){
+            array_push($lista_errores, "Debe escribir un nombre de marca");
+        }
+       
+        $marca_duplicado=DB::select("select 
+                                        COUNT(nombre_marca)as cantidad_marca
+                                        from pro.tempresa
+                                        where nombre_marca=?",
+                                    [$request->nombre_marca]);
+        if(($marca_duplicado[0]->cantidad_marca)>0){
+            array_push($lista_errores, "Nombre de marca ya registrado");
+            
+        };
+        
+        // $usuario_logueado=DB::select("select count(*) as users from segu.users u where u.id=?",[auth()->id()]);
+        // if(($usuario_logueado[0]->users)>0){
+        //     array_push($lista_errores, "Usuario logueado");
+        // };
+        // dd(count($lista_errores));
+        return $lista_errores;
     }
     public function nueva_marca(Request $request){
         $lista_marca=DB::select("select 
@@ -50,20 +80,49 @@ class ParametrosController extends Controller
                                 id_empresa, 
                                 nombre_marca
                                 FROM pro.tempresa;');
-        // dd('Hola MAR');
-        DB::insert('INSERT INTO pro.tempresa(
-            fecha_reg,nombre_marca)
-            VALUES (now()::TIMESTAMP,?);',[$request->nombre_marca]);
 
-         $arrayParametros = array(
-            'lista_empresa' => $lista_empresa,
-            'lista_marca' => $lista_marca,
-            'nombre_marca'=>$request->nombre_marca
-                                );
-                                // dd($arrayParametros);
+        $lista_errores=$this->validacion_marca($request);
+        // dd('Hola MAR');
+        $validacion_correcta=count($lista_errores);
+
+        if($validacion_correcta==0){
+            DB::insert('INSERT INTO pro.tempresa(
+                fecha_reg,nombre_marca)
+                VALUES (now()::TIMESTAMP,?);',[$request->nombre_marca]);
+            $arrayParametros = array(
+                'lista_empresa' => $lista_empresa,
+                'lista_marca' => $lista_marca,
+                'nombre_marca'=>$request->nombre_marca,
+                'lista_errores'=>$lista_errores,
+                'validacion_correcta'=>1);
+        }
+        else{
+            $arrayParametros=array(
+                'lista_empresa' => $lista_empresa,
+                'lista_marca' => $lista_marca,
+                'nombre_marca'=>$request->nombre_marca,
+                'lista_errores'=>$lista_errores,
+                'validacion_correcta'=>0
+            );
+        }
+            // dd($arrayParametros);
         return view('contenedor.admin.parametros.form_nueva_marca',$arrayParametros );
     }
+    public function form_editar_marca($id){
+        $lista_marca=DB::select("select 
+                            e.id_empresa,
+                            e.nombre_marca
+                            from pro.tempresa e
+                            ");
+        $lista_empresa= DB::select('SELECT 
+                                id_empresa, 
+                                nombre_marca
+                                FROM pro.tempresa;');
 
+        $lista_errores=$this->validacion_marca($request);
+        // dd('Hola MAR');
+        $validacion_correcta=count($lista_errores);
+    }
     public function clientes(){
         $lista_clientes=DB::select("select 
                                 p.nombre,

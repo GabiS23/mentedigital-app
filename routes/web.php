@@ -85,8 +85,8 @@ Route::post("nueva_marca", [ParametrosController::class, "nueva_marca"])->name('
 
 Route::get("eliminar_marca/{id}", [ParametrosController::class, "eliminar_marca"])->name('eliminar_marca');
 
-Route::get("form_editar_marca/{id}", [ProformaController::class, "form_editar_marca"])->name('form_editar_marca');
-Route::post("editar_marca/{id}", [ProformaController::class, "editar_marca"])->name('editar_marca');
+Route::get("form_editar_marca/{id}", [ParametrosController::class, "form_editar_marca"])->name('form_editar_marca');
+Route::post("editar_marca/{id}", [ParametrosController::class, "editar_marca"])->name('editar_marca');
 
 // Select proforma
 // Route::get("selectPlan/{id}", [ProformaController::class, "selectPlan"])->name('selectPlan');

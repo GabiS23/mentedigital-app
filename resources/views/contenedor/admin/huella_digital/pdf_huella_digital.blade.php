@@ -23,7 +23,7 @@
                 height: 100px;
                 /* background-color: #ddd; */
                 text-align: center;
-            }
+            } 
 
             /** Definir las reglas del pie de página **/
             footer {
